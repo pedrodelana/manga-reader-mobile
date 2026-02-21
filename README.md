@@ -1,18 +1,8 @@
-# Study Project
-
 This project is only for study purposes.
 
 ## Quick summary
 
-A mobile app built with **Expo + React Native + TypeScript** to list manga by consuming the **MangaDex** public API.
-
-## Stack
-
-- Expo
-- React Native
-- TypeScript
-- Axios
-- React Query
+A mobile app built with to list manga by consuming the **MangaDex** public API.
 
 ## Quick start
 
