@@ -14,17 +14,34 @@ const api = {
   }),
 
   manga: {
-    list: async () => {
+    list: async (params = {}) => {
       const response = await api.client.get("manga", {
         params: {
           limit: 30,
           "includes[]": "cover_art",
           "availableTranslatedLanguage[]": ["pt-br"],
+          order: { followedCount: "desc" },
+          ...params,
         },
       });
       console.log("response list >>> : ", response.data.data);
 
       return response.data;
+    },
+    search: {
+      title: async (query: string) => {
+        const response = await api.client.get("manga", {
+          params: {
+            title: query,
+            limit: 30,
+            "includes[]": "cover_art",
+            "availableTranslatedLanguage[]": ["pt-br", "en"],
+            order: { followedCount: "desc" },
+          },
+        });
+        console.log("response search >>> : ", response.data);
+        return response.data;
+      },
     },
   },
   cover: {
